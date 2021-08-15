@@ -21,6 +21,6 @@ jobs:
         development_branch: 'test'
         allow_ff: true
         ff_only: true
-        allow_forks: false
+        allow_forks: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

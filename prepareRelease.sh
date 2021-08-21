@@ -17,4 +17,5 @@ git tag $1
 echo "Checkout main and fastforward it to the tag we just created..."
 git checkout main
 git pull
+git log
 git merge --ff-only $1

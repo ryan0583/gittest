@@ -1,3 +1,18 @@
+## [1.4.0]
+
+### Added
+
+
+### Changed
+
+- Updated prepareRelease script
+- Updating prepareRelease action
+
+### Removed
+
+- Removed Another Thing
+- Removed Added 1
+
 ## [1.3.0]
 
 ### Added

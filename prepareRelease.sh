@@ -24,4 +24,5 @@ echo "Checkout main and fastforward it to the tag we just created..."
 git branch -D main
 git checkout main
 git pull
+git reset --hard origin/main
 git merge --ff-only dev

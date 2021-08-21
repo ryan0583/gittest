@@ -22,4 +22,4 @@ echo "Checkout main and fastforward it to the tag we just created..."
 git branch -D main
 git checkout main
 git pull
-git merge --ff-only $1
+git merge --ff-only dev

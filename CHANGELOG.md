@@ -1,3 +1,15 @@
+## [1.5.0]
+
+### Added
+
+
+### Changed
+
+- Updated prepareRelease script
+
+### Removed
+
+
 ## [1.4.0]
 
 ### Added

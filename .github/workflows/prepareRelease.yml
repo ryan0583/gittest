@@ -18,6 +18,10 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
+      # This step writes the CHANGELOG from the files in the
+      # CHANGELOG folder, removes the files, commits the changes
+      # and tags the latest commit using the tag provided when
+      # executing the action
       - name: Prepare release
         run: ./prepareRelease.sh ${{ github.event.inputs.tag }}
 
@@ -32,6 +36,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
 
+      # Although this is called nightly merge, this actually just merges dev into main.
+      # The trigger for this is the on expression we have above which will trigger this
+      # step and those above when we manually trigger the action.
       - name: Dev Main Merge
         uses: robotology/gh-action-nightly-merge@v1.3.1
         with:

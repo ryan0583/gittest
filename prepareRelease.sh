@@ -15,7 +15,6 @@ echo "Tag the last commit with the version number we're going to use for the rel
 git tag $1
 
 echo "Checkout main and fastforward it to the tag we just created..."
-git branch -D main
 git checkout main
 git pull
 git merge --ff-only $1

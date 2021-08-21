@@ -1,0 +1,45 @@
+name: "Prepare the next release"
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag"
+
+jobs:
+  prepareRelease:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v2
+        with:
+          ref: "dev"
+
+      - name: Setup Git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Prepare release
+        run: ./prepareRelease.sh ${{ github.event.inputs.tag }}
+
+      - name: Push changes to dev
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push tags
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
+
+      - name: Checkout main
+        uses: actions/checkout@v2
+        with:
+          ref: "main"
+
+      - name: Push changes to main
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

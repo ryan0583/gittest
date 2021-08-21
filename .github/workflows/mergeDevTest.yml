@@ -1,0 +1,28 @@
+name: 'Merge dev to test'
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  dev-test-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      # Although this is called nightly merge, this actually just merges dev into test.
+      # The trigger for this is the on expression we have above which will trigger this
+      # any time dev is pushed to.
+      - name: Dev Test Merge
+        uses: robotology/gh-action-nightly-merge@v1.3.1
+        with:
+          stable_branch: 'dev'
+          development_branch: 'test'
+          allow_ff: true
+          ff_only: true
+          allow_forks: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

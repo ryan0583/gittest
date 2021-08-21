@@ -1,5 +1,9 @@
 #!/bin/bash
 
+git fetch
+git checkout main
+git branch -D dev
+
 echo "Switch to dev branch and ensure we're up to date..."
 git checkout dev
 git pull

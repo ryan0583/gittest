@@ -34,13 +34,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
 
-      - name: Dev Main Merge
-        uses: robotology/gh-action-nightly-merge@v1.3.1
+      - name: Checkout main
+        uses: actions/checkout@v2
         with:
-          stable_branch: "dev"
-          development_branch: "main"
-          allow_ff: true
-          ff_only: true
-          allow_forks: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ref: "main"
+
+      - name: Push changes to main
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

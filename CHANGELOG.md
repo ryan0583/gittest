@@ -1,3 +1,15 @@
+## [1.6.0]
+
+### Added
+
+
+### Changed
+
+- One more change to github action
+
+### Removed
+
+
 ## [1.5.0]
 
 ### Added

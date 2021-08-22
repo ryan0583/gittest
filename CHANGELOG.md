@@ -1,3 +1,15 @@
+## [1.8.0]
+
+### Added
+
+
+### Changed
+
+- Tiny extra change
+
+### Removed
+
+
 ## [1.7.0]
 
 ### Added

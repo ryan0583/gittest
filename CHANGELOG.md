@@ -1,3 +1,15 @@
+## [1.7.0]
+
+### Added
+
+
+### Changed
+
+- Genuinely final change for release action
+
+### Removed
+
+
 ## [1.6.0]
 
 ### Added

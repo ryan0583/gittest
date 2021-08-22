@@ -36,21 +36,33 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
 
-      # Although these are called nightly merge, they actually just merges dev into the
-      # branch defined in development_branch.The trigger for this is the on expression we
-      # have above which will trigger this step and those above when we manually trigger
-      # the action.
+  dev-test-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v1
+
+      # This fast-forward merges the dev branch into the test branch,
+      # then pushes back up to the test branch.
       - name: Dev Test Merge
         uses: robotology/gh-action-nightly-merge@v1.3.1
         with:
           stable_branch: "dev"
-          development_branch: "main"
+          development_branch: "test"
           allow_ff: true
           ff_only: true
           allow_forks: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  dev-main-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v1
+
+      # This fast-forward merges the dev branch into the main branch,
+      # then pushes back up to the main branch.
       - name: Dev Main Merge
         uses: robotology/gh-action-nightly-merge@v1.3.1
         with:

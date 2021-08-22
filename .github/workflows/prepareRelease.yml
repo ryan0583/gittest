@@ -36,9 +36,21 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
 
-      # Although this is called nightly merge, this actually just merges dev into main.
-      # The trigger for this is the on expression we have above which will trigger this
-      # step and those above when we manually trigger the action.
+      # Although these are called nightly merge, they actually just merges dev into the
+      # branch defined in development_branch.The trigger for this is the on expression we
+      # have above which will trigger this step and those above when we manually trigger
+      # the action.
+      - name: Dev Test Merge
+        uses: robotology/gh-action-nightly-merge@v1.3.1
+        with:
+          stable_branch: "dev"
+          development_branch: "main"
+          allow_ff: true
+          ff_only: true
+          allow_forks: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Dev Main Merge
         uses: robotology/gh-action-nightly-merge@v1.3.1
         with:

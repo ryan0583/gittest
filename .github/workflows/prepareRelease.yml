@@ -23,7 +23,7 @@ jobs:
       # and tags the latest commit using the tag provided when
       # executing the action
       - name: Prepare release
-        run: ./prepareRelease.sh ${{ github.event.inputs.tag }}
+        run: ./scripts/prepareRelease.sh ${{ github.event.inputs.tag }}
 
       - name: Push changes to dev
         uses: ad-m/github-push-action@master

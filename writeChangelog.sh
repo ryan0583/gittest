@@ -31,4 +31,7 @@ appendChangelogSection "Changed"
 appendChangelogSection "Added"
 
 appendChangelogLine ""
-appendChangelogLine "## [$1] - $date +"%Y-%m-%d""
+
+currentDate=`date +"%Y-%m-%d"`
+
+appendChangelogLine "## [$1] - $currentDate"

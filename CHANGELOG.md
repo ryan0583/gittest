@@ -1,3 +1,15 @@
+## [1.9.0] -  +%Y-%m-%d
+
+### Added
+
+
+### Changed
+
+- Adding current date to changelog
+
+### Removed
+
+
 ## [1.8.0]
 
 ### Added

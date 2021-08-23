@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Add the entries in the CHANGELOG folder to the CHANGELOG file..."
-./writeChangelog.sh $1
+./scripts/writeChangelog.sh $1
 
 echo "Commit the changelog changes..."
 git add .

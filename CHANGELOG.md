@@ -1,3 +1,15 @@
+## [1.11.0] - 2021-08-23
+
+### Added
+
+
+### Changed
+
+- Added to readme description
+
+### Removed
+
+
 ## [1.10.0] - 2021-08-23
 
 ### Added

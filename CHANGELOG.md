@@ -1,3 +1,16 @@
+## [1.13.0] - 2021-08-23
+
+### Added
+
+
+### Changed
+
+- Fixing prepare release script
+- Moving release script files
+
+### Removed
+
+
 ## [1.11.0] - 2021-08-23
 
 ### Added

@@ -1,3 +1,15 @@
+## [1.10.0] - 2021-08-23
+
+### Added
+
+
+### Changed
+
+- Fixing current date in changelog
+
+### Removed
+
+
 ## [1.9.0] -  +%Y-%m-%d
 
 ### Added

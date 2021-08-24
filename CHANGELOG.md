@@ -1,3 +1,17 @@
+## [1.14.0] - 2021-08-24
+
+### Added
+
+- Added packages and iqlive-scripts folder
+
+### Changed
+
+- Moved script files and updated the script and github action to reflect changed location
+
+### Removed
+
+- Removed scripts folder
+
 ## [1.13.0] - 2021-08-23
 
 ### Added

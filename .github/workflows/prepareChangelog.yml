@@ -20,7 +20,7 @@ jobs:
 
       # This step writes the CHANGELOG from the files in the
       # CHANGELOG folder, removes the files and commits the changes
-      - name: Prepare release
+      - name: Prepare ChangeLog
         run: ./packages/iqlive-scripts/prepareChangelog.sh ${{ github.event.inputs.tag }}
 
       - name: Push changes to dev

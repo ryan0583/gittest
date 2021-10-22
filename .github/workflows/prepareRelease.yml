@@ -1,10 +1,10 @@
-name: "Prepare the next release"
+name: 'Prepare the next release'
 
 on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Release tag"
+        description: 'Release tag'
 
 jobs:
   prepareRelease:
@@ -18,42 +18,16 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      # This step writes the CHANGELOG from the files in the
-      # CHANGELOG folder, removes the files, commits the changes
-      # and tags the latest commit using the tag provided when
+      # This step tags the latest commit using the tag provided when
       # executing the action
       - name: Prepare release
-        run: ./packages/iqlive-scripts/prepareRelease.sh ${{ github.event.inputs.tag }}
-
-      - name: Push changes to dev
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: ./packages/iqlive-scripts/tagRelease.sh ${{ github.event.inputs.tag }}
 
       - name: Push tags
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
-
-  dev-test-merge:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout dev
-        uses: actions/checkout@v1
-
-      # This fast-forward merges the dev branch into the test branch,
-      # then pushes back up to the test branch.
-      - name: Dev Test Merge
-        uses: robotology/gh-action-nightly-merge@v1.3.1
-        with:
-          stable_branch: "dev"
-          development_branch: "test"
-          allow_ff: true
-          ff_only: true
-          allow_forks: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   dev-main-merge:
     runs-on: ubuntu-latest
@@ -66,8 +40,8 @@ jobs:
       - name: Dev Main Merge
         uses: robotology/gh-action-nightly-merge@v1.3.1
         with:
-          stable_branch: "dev"
-          development_branch: "main"
+          stable_branch: 'dev'
+          development_branch: 'main'
           allow_ff: true
           ff_only: true
           allow_forks: true

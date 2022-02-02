@@ -1,4 +1,4 @@
-name: 'Merge dev to test'
+name: 'Merge dev to demoo'
 
 on: workflow_dispatch
 

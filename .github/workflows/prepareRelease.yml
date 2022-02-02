@@ -29,6 +29,25 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
 
+  dev-demo-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v1
+
+      # This fast-forward merges the dev branch into the main branch,
+      # then pushes back up to the main branch.
+      - name: Dev Demo Merge
+        uses: robotology/gh-action-nightly-merge@v1.3.1
+        with:
+          stable_branch: 'dev'
+          development_branch: 'demo'
+          allow_ff: true
+          ff_only: true
+          allow_forks: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   dev-main-merge:
     runs-on: ubuntu-latest
     steps:

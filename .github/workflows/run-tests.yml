@@ -11,8 +11,5 @@ jobs:
           node-version: '14.x'
           registry-url: https://npm.pkg.github.com
           scope: '@statsbomb'
-      - run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
-      - run: cd packages/iqlive-react-components && yarn build:messages # Need to compile the messages before running Eslint
-      - run: cd ./ && yarn test:ci
+      - run: |
+          exit 1

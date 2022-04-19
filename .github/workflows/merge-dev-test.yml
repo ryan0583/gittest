@@ -20,7 +20,7 @@ jobs:
       # The trigger for this is the on expression we have above which will trigger this
       # any time dev is pushed to.
       - name: Dev Test Merge
-        uses: usertesting/gh-action-nightly-merge
+        uses: usertesting/gh-action-nightly-merge@latest
         with:
           stable_branch: 'dev'
           development_branch: 'test'
